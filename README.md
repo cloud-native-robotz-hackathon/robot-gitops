@@ -1,1 +1,1 @@
-# starter-app-python deployment artifacts
+# GitOps Repo for robot deployment
