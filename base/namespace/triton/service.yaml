@@ -1,0 +1,24 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: server
+spec:
+  ports:
+  - protocol: TCP
+    name: 8000-tcp
+    port: 8000
+    targetPort: 8000
+  - protocol: TCP
+    name: 8001-tcp
+    port: 8001
+    targetPort: 8001
+  - protocol: TCP
+    name: 8002-tcp
+    port: 8002
+    targetPort: 8002
+  selector:
+    app: triton
+  sessionAffinity: None
+  type: ClusterIP
+

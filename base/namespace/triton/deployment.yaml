@@ -1,0 +1,49 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: triton
+spec:
+  selector:
+    matchLabels:
+      app: triton
+  template:
+    metadata:
+      labels:
+        app: triton
+    spec:
+      volumes:
+      - name: models
+        emptyDir: {}
+      initContainers:
+      - image: registry.access.redhat.com/ubi9-minimal:9.4
+        imagePullPolicy: IfNotPresent
+        name: model-downloder
+        volumeMounts:
+        - name: models
+          mountPath: /dst/
+        command:
+          - sh
+          - -c
+          - |
+
+            mkdir -p /dst/densenet_onnx/1
+            cd /dst/densenet_onnx/1
+
+            curl -o model.onnx -L https://contentmamluswest001.blob.core.windows.net/content/14b2744cf8d6418c87ffddc3f3127242/9502630827244d60a1214f250e3bbca7/08aed7327d694b8dbaee2c97b8d0fcba/densenet121-1.2.onnx
+            ls -laR /dst/
+
+      containers:
+      - name: triton
+        ports:
+        - containerPort: 8000
+        - containerPort: 8001
+        - containerPort: 8002
+        command:
+        - tritonserver
+        - --model-repository
+        - /models
+        image: nvcr.io/nvidia/tritonserver:24.06-py3
+        volumeMounts:
+        - name: models
+          mountPath: /models
