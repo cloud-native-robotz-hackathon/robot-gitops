@@ -32,7 +32,7 @@ spec:
         - tritonserver
         - --model-repository
         - /models
-        image: nvcr.io/nvidia/tritonserver:24.06-py3
+        image: quay.io/cloud-native-robotz-hackathon/tritonserver:24.08-py3
         volumeMounts:
         - name: models
           mountPath: /models
