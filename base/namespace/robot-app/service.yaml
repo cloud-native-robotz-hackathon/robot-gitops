@@ -6,9 +6,9 @@ metadata:
 spec:
   ports:
   - protocol: TCP
-    name: 5002-tcp
-    port: 5002
-    targetPort: 5000
+    name: 8080-tcp
+    port: 8080
+    targetPort: 8080
   selector:
     app: starterapp-python 
   sessionAffinity: None
