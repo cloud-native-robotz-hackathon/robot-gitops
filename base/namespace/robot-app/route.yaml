@@ -6,7 +6,7 @@ metadata:
   name: starterapp-python
 spec:
   port:
-    targetPort: 5002-tcp
+    targetPort: 8080-tcp
   to:
     kind: Service
     name: starterapp-python
