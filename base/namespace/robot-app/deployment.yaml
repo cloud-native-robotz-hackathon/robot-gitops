@@ -14,4 +14,4 @@ spec:
     spec:
       containers:
       - name: starterapp-python
-        image: quay.io/grieger/starter-app-python-archtest:latest
+        image: image: quay.io/cloud-native-robotz-hackathon/starter-app-python:master
