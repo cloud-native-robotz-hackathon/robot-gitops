@@ -17,7 +17,7 @@ spec:
         emptyDir: {}
       initContainers:
       - image: quay.io/cloud-native-robotz-hackathon/model-container:trained
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: model-container
         volumeMounts:
         - name: models
@@ -33,6 +33,7 @@ spec:
         - --model-repository
         - /models
         image: quay.io/cloud-native-robotz-hackathon/tritonserver:24.08-py3
+        imagePullPolicy: Never
         volumeMounts:
         - name: models
           mountPath: /models
