@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: starterapp-python
-        image: quay.io/grieger/starter-app-python-archtest:latest
+        image: quay.io/cloud-native-robotz-hackathon/starter-app-python:master
         env:
         - name: INFERENCING_API
           value: "http://server.triton.svc.cluster.local"
@@ -24,4 +24,3 @@ spec:
           value: "NONE"
         - name: INFERENCING_API_TOKEN
           value: "NONE"
-
