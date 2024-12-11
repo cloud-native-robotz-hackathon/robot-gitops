@@ -6,8 +6,8 @@ metadata:
 spec:
   ports:
   - protocol: TCP
-    name: 8000-tcp
-    port: 8000
+    name: 80-tcp
+    port: 80
     targetPort: 8000
   - protocol: TCP
     name: 8001-tcp
