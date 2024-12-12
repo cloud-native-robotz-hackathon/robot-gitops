@@ -4,5 +4,5 @@ namespace: triton
 resources:
 - namespace.yaml
 - deployment.yaml
-#- route.yaml
+- route.yaml
 - service.yaml
