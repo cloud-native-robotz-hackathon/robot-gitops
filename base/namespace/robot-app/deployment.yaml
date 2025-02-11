@@ -17,7 +17,7 @@ spec:
         image: quay.io/cloud-native-robotz-hackathon/starter-app-python:master
         env:
         - name: INFERENCING_API
-          value: "http://server.triton.svc.cluster.local./v2/models/model_onnx/infer"
+          value: "http://server.triton.svc.cluster.local./v2/models/robot_onnx/infer"
         - name: ROBOT_API
           value: "http://robot.local:5000"
         - name: ROBOT_NAME
